@@ -1,0 +1,52 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-color:tomato;
+    }
+    .container {
+        margin-top: 20px; 
+        background-color: white;
+        padding: 10px;
+        
+
+    }
+    .email-sender-box { 
+        margin-top: 20px; 
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    #email-subject {
+        margin-top: 20px;
+    }
+    #email-content { 
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 350px;
+        height: 350px;
+    }
+    #text-email-box{
+    
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+</style>
+<div class="container">
+    <h1 id="text-email-box">Send Email</h1>
+    <form method="POST"> {% csrf_token %}
+        <div class="email-sender-box">
+            <input id="email-sendto" type="email" name="receiver" required placeholder="Email Receiver">
+            <br>
+            <input id="email-subject" type="text" name="subject" placeholder="Subject">
+            <br>
+            <input id="email-content" type="text" name="content" placeholder="Content">
+            <button class="btn btn-primary" type="submit" name="submit" value="Send">Send</button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
